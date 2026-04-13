@@ -1,0 +1,159 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: sans-serif;
+    background:linear-gradient(135deg, #1e293b, #020617);
+    padding: 20px;
+    min-height: 100vh;
+    color: #f8fafc;
+}
+
+/*Center Layout*/
+main{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/*card*/
+.card{
+    width: 100%;
+    max-width: 480px;
+    background: rgba(141, 9, 243, 0.05);
+    backdrop-filter: blur(14px);
+    padding: 24px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 15px 40px #8204f11a;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover{
+    transform: translateY(-4px);
+}
+
+/*Header*/
+.card-header h2{
+font-size: 1.4rem;
+}
+
+/*Description*/
+.description{
+    margin: 10px, 0;
+    color: #94a3b8;
+    margin-top: 6px;
+}
+
+/*Meta*/
+.meta{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+    margin-top: 8px;
+}
+
+.priority{
+    font-weight: bold;
+}
+
+.priority.high{
+    color: #ef4444;
+    font-weight: 600;
+}
+
+.status{
+    background: rgba(124, 58, 237, 0.2);
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+/*Time*/
+.time-section{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+    color: #64748b;
+}
+
+/*checkbox*/
+input[type="checkbox"]{
+    accent-color: #7c3aed;
+}
+.checkbox-section{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+/*Tags*/
+.tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin-bottom: 12px;
+}
+
+.tags li{
+    background: rgba(124, 58, 237, 0.15);
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    color: #a78bfa;
+}
+
+/*Buttons*/
+.actions{
+    display: flex;
+    gap: 10px;
+}
+
+button{
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255,0.1 );
+    color: white;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+button:hover{
+    background: #7c3aed;
+}
+
+button:last-child:hover{
+    background: #ef4444;
+}
+
+/*Focus for accessibility*/
+button:focus,
+input:focus{
+    outline: 2px solid blue;
+    outline-offset: 2px;
+}
+/*Tablet*/
+@media(min-width: 600px){
+    .card{
+        padding: 24px;
+    }
+}
+
+/*Laptop*/
+@media(min-width: 1024px){
+    body{
+        padding: 40px;
+    }
+}
