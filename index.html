@@ -5,66 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TODO CARD</title>
     <link rel="stylesheet" href="todo.css">
- 
 </head>
 <body>
     <main>
-    <article data-testid="test-todo-status" class="card">
-        <header class="card-header">
-            <h2 data-testid="test-todo-title" id="todo-title">
-                Finish Frontend Task
-            </h2>
-        </header>
+        <article data-testid="test-todo-status" class="card">
+            <header class="card-header">
+                <h2 data-testid="test-todo-title" id="todo-title">
+                    Finish Frontend Task
+                </h2>
+            </header>
 
-        <p data-testid="test-todo-description" class="description">
-            Build a fully testable and accessible todo card component.
-        </p>
+            <div class="meta">
+                <span data-testid="test-todo-priority" class="priority high" aria-label="High priority">
+                    High
+                </span>
+                <span data-testid="test-todo-priority-indicator" class="priority-indicator high"></span>
 
-        <div class="meta">
-            <span data-testid="test-todo-priority" class="priority high" aria-label="High priority">
-               🔴 High
-            </span>    
-        
-            <span data-testid="test-todo-status" id="status" class="status">
-                Pending
-            </span>
-        </div>
+                <span data-testid="test-todo-status" id="status" class="status">
+                    Pending
+                </span>
 
-        <div class="time-section">
-        <time date-testid="test-todo-due-date" datetime="2026-04-16T18:00:00Z">
-            Due Apr 16, 2026
-        </time>
+                <label for="status-control" class="visually-hidden">Change Status</label>
+                <select data-testid="test-todo-status-control" id="status-control">
+                    <option>Pending</option>
+                    <option>In Progress</option>
+                    <option>Done</option>
+                </select>
+            </div>
 
-        <time data-testid="test-todo-time-remaining" id="time-remaining" aria-live="polite">
-            Loading...
-        </time>
-        </div>
+            <div data-testid="test-todo-collapsible-section" id="description-section" class="collapsible">
+                <p data-testid="test-todo-description" class="description">
+                    Build a fully testable and accessible todo card component.
+                </p>
+            </div>
 
-        <div class="checkbox-section">
-            <input 
-            type="checkbox"
-            id="complete"
-            data-testid="test-todo-complete-toggle" />
-            <label for="complete">Mark as complete</label>
-        </div>
-
-        <ul data-testid="test-todo-tags" class="tags">
-            <li data-testid="test-todo-tag-work">Work</li>
-            <li data-testid="test-todo-tag-urgent">Urgent</li>
-            <li>design</li>
-        </ul>
-
-        <div class="actions">
-            <button
-            data-testid="test-todo-edit-button">Edit </button>
-            <button
-                 data-testid="test-todo-delete-button">Delete
+            <button data-testid="test-todo-expand-toggle" aria-expanded="false" aria-controls="description-section">
+                Show More
             </button>
-        </div>
 
-    </article>
+            <div class="time-section">
+                <time date-testid="test-todo-due-date" datetime="2026-04-16T18:00:00Z">
+                    Due Apr 16, 2026
+                </time>
+                <time data-testid="test-todo-time-remaining" id="time-remaining" aria-live="polite">
+                    Loading...
+                </time>
+            </div>
+
+            <span data-testid="test-todo-overdue-indicator" class="overdue-hidden">
+                Overdue
+            </span>
+
+            <div class="checkbox-section">
+                <input type="checkbox" id="complete" data-testid="test-todo-complete-toggle" />
+                <label for="complete">Mark as complete</label>
+            </div>
+
+            <ul data-testid="test-todo-tags" class="tags">
+                <li data-testid="test-todo-tag-work">Work</li>
+                <li data-testid="test-todo-tag-urgent">Urgent</li>
+                <li>Design</li>
+            </ul>
+
+            <div class="actions">
+                <button data-testid="test-todo-edit-button">Edit</button>
+                <button data-testid="test-todo-delete-button">Delete</button>
+            </div>
+
+            <form data-testid="test-todo-edit-form" id="edit-form" class="edit-form hidden">
+                <div>
+                    <label for="edit-title">Title</label>
+                    <input type="text" id="edit-title" data-testid="test-todo-edit-title-input" />
+                </div>
+                <div>
+                    <label for="edit-description">Description</label>
+                    <textarea id="edit-description" data-testid="test-todo-edit-description-input"></textarea>
+                </div>
+                <div>
+                    <label for="edit-priority">Priority</label>
+                    <select data-testid="test-todo-edit-priority-select" id="edit-priority">
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="edit-date">Due Date</label>
+                    <input id="edit-date" type="datetime-local" data-testid="test-todo-edit-due-date-input" />
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" data-testid="test-todo-save-button">Save</button>
+                    <button type="button" data-testid="test-todo-cancel-button" id="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </article>
     </main>
-    
-       <script src="todo.js"></script>
+
+    <script src="todo.js"></script>
 </body>
 </html>
